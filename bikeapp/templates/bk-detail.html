@@ -1,0 +1,27 @@
+{%extends base.html%}
+{%block body_block%}
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">DETAILS</h5>
+    <p class="card-text">
+        BIKE NAME:{{bikes.bike_name}}
+    </p>
+      <p>
+          COMPANY:{{bikes.company_name}}
+      </p>
+      <p>
+          REGISTRATION:{{bikes.registration}}
+      </p>
+      <p>
+          ENGINE:{{bikes.engine_displacement}}
+      </p>
+      <p>
+          PRICE:{{bikes.price}}
+      </p>
+    <a href="#" class="btn btn-primary">Go Back</a>
+  </div>
+</div>
+
+{%endblock%}

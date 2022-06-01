@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row" >
+    <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 container" >
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <input type="SUBMIT" value="Register">
+        </form>
+
+    </div>
+    <div class="col-3"></div>
+
+
+</div>
+</div>
+</body>
+</html>
