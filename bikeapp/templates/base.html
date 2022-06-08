@@ -42,7 +42,11 @@
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{%url 'change-pass'%}">change password</a>
-                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        {%if request.user.seller%}
+                                        <a class="dropdown-item" href="{%url 'bk-profileview'%}">View Profile</a>
+                                        {%else%}
+                                        <a class="dropdown-item" href="{%url 'bk-addprofile'%}">Add profile</a>
+                                        {%endif%}
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="{%url 'logout'%}">logout</a>
                                     </div>

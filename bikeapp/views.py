@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View,CreateView,ListView,DetailView,UpdateView,DeleteView,FormView
 from django.urls import reverse_lazy
-from bikeapp.models import Bikes
-from bikeapp.forms import BikeForm
+from bikeapp.models import Bikes,CompanyProfile
+from bikeapp.forms import BikeForm,CompanyProfileForm
 from django.contrib.auth.models import User
 from bikeapp.forms import UserForm,LoginForm
 from django.contrib.auth import authenticate,login,logout
@@ -96,9 +96,24 @@ class PasswordResetView(TemplateView):
             u.save()
             return redirect('login')
 
+class CompanyProfileView(CreateView):
+    model = CompanyProfile
+    form_class = CompanyProfileForm
+    template_name = "bk-addprofile.html"
+    success_url = reverse_lazy('bk-home')
+    def form_valid(self, form):
+        form.instance.user=self.request.user
+        return super().form_valid(form)
 
 
 
 
+class BkViewProfileView(TemplateView):
+    template_name = "bk-viewprofile.html"
 
-
+class BkEditProfileView(UpdateView):
+    model = CompanyProfile
+    form_class = CompanyProfileForm
+    template_name = "bk-ediprofile.html"
+    success_url = reverse_lazy('bk-profileview')
+    pk_url_kwarg = "id"

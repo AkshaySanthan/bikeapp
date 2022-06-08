@@ -1,5 +1,5 @@
 from django import forms
-from bikeapp.models import Bikes
+from bikeapp.models import Bikes,CompanyProfile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -20,3 +20,7 @@ class LoginForm(forms.Form):
     username=forms.CharField()
     password=forms.CharField(widget=forms.PasswordInput())
 
+class CompanyProfileForm(forms.ModelForm):
+    class Meta:
+        model=CompanyProfile
+        exclude=("user",)
